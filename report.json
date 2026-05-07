@@ -1,0 +1,149 @@
+{
+  "journal": "Computational Linguistics (cs.CL on arXiv)",
+  "year_range": "2015-2024",
+  "total_papers": 1918,
+  "alignment_score": {
+    "mean": 0.2821,
+    "std": 0.0835,
+    "min": -0.0039,
+    "max": 0.5656,
+    "median": 0.2844
+  },
+  "papers_per_year": {
+    "2015": 156,
+    "2016": 164,
+    "2017": 171,
+    "2018": 184,
+    "2019": 193,
+    "2020": 150,
+    "2021": 150,
+    "2022": 150,
+    "2023": 150,
+    "2024": 150,
+    "2025": 150,
+    "2026": 150
+  },
+  "mean_score_per_year": {
+    "2015": 0.2978,
+    "2016": 0.3064,
+    "2017": 0.2966,
+    "2018": 0.284,
+    "2019": 0.2858,
+    "2020": 0.2801,
+    "2021": 0.2761,
+    "2022": 0.285,
+    "2023": 0.2832,
+    "2024": 0.285,
+    "2025": 0.2613,
+    "2026": 0.2372
+  },
+  "outlier_analysis": {
+    "threshold": 0.1435,
+    "total_outliers": 96,
+    "outlier_rate": 0.0501
+  },
+  "top10_aligned": [
+    {
+      "title": "Proceedings of the 2016 Workshop on Semantic Spaces at the Intersection of NLP, Physics and Cognitive Science",
+      "score": 0.5656,
+      "year": 2016
+    },
+    {
+      "title": "Contextual Word Representations: A Contextual Introduction",
+      "score": 0.5634,
+      "year": 2019
+    },
+    {
+      "title": "Not Cheating on the Turing Test: Towards Grounded Language Learning in Artificial Intelligence",
+      "score": 0.5383,
+      "year": 2022
+    },
+    {
+      "title": "Evaluating the State-of-the-Art of End-to-End Natural Language Generation: The E2E NLG Challenge",
+      "score": 0.5266,
+      "year": 2019
+    },
+    {
+      "title": "Survey of the State of the Art in Natural Language Generation: Core tasks, applications and evaluation",
+      "score": 0.5142,
+      "year": 2017
+    },
+    {
+      "title": "Arithmetic Word Problem Solver using Frame Identification",
+      "score": 0.5084,
+      "year": 2018
+    },
+    {
+      "title": "A Survey and Classification of Controlled Natural Languages",
+      "score": 0.5051,
+      "year": 2015
+    },
+    {
+      "title": "Automatic Inference of Minimalist Grammars using an SMT-Solver",
+      "score": 0.4935,
+      "year": 2019
+    },
+    {
+      "title": "Automatic Prediction of Discourse Connectives",
+      "score": 0.49,
+      "year": 2017
+    },
+    {
+      "title": "A Concept Specification and Abstraction-based Semantic Representation: Addressing the Barriers to Rule-based Machine Translation",
+      "score": 0.4895,
+      "year": 2018
+    }
+  ],
+  "top10_misaligned": [
+    {
+      "title": "Measuring University Impact: Wikipedia approach",
+      "score": -0.0039,
+      "year": 2020
+    },
+    {
+      "title": "Jointly optimal dereverberation and beamforming",
+      "score": 0.0047,
+      "year": 2019
+    },
+    {
+      "title": "FLowHigh: Towards Efficient and High-Quality Audio Super-Resolution with Single-Step Flow Matching",
+      "score": 0.0231,
+      "year": 2025
+    },
+    {
+      "title": "Exploiting Instruction-Following Retrievers for Malicious Information Retrieval",
+      "score": 0.0424,
+      "year": 2025
+    },
+    {
+      "title": "MobileCLIP: Fast Image-Text Models through Multi-Modal Reinforced Training",
+      "score": 0.0507,
+      "year": 2023
+    },
+    {
+      "title": "Elite Political Discourse has Become More Toxic in Western Countries",
+      "score": 0.0555,
+      "year": 2025
+    },
+    {
+      "title": "A review on the novelty measurements of academic papers",
+      "score": 0.0559,
+      "year": 2025
+    },
+    {
+      "title": "Cycle-Consistent Speech Enhancement",
+      "score": 0.0581,
+      "year": 2018
+    },
+    {
+      "title": "Unknown Unknowns: Why Hidden Intentions in LLMs Evade Detection",
+      "score": 0.0588,
+      "year": 2026
+    },
+    {
+      "title": "Sum-of-square-of-rational-function based representations of positive semidefinite polynomial matrices",
+      "score": 0.0625,
+      "year": 2019
+    }
+  ]
+}

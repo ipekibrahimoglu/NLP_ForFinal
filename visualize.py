@@ -89,3 +89,50 @@ print("✅ outlier_rate.png saved")
 # ============================================================
 df.to_csv("results_with_outliers.csv", index=False)
 print("\n✅ results_with_outliers.csv saved")
+
+# ============================================================
+# 5) BOXPLOT BY YEAR
+# ============================================================
+years = sorted(df["year"].unique())
+data_by_year = [df[df["year"] == y]["alignment_score"].values for y in years]
+
+plt.figure(figsize=(12, 5))
+plt.boxplot(data_by_year, tick_labels=[str(y) for y in years], showfliers=True)
+plt.xlabel("Year")
+plt.ylabel("Alignment Score")
+plt.title("Alignment Score Distribution by Year (Boxplot)")
+plt.xticks(rotation=35, ha="right")
+plt.tight_layout()
+plt.savefig("boxplot.png", dpi=200)
+plt.show()
+print("✅ boxplot.png saved")
+
+# ============================================================
+# 6) p10 / MEDIAN / p90 TREND
+# ============================================================
+yearly_stats = []
+for y in years:
+    scores = df[df["year"] == y]["alignment_score"].values
+    yearly_stats.append({
+        "year": y,
+        "p10": np.percentile(scores, 10),
+        "median": np.percentile(scores, 50),
+        "p90": np.percentile(scores, 90),
+    })
+
+stats_df = pd.DataFrame(yearly_stats)
+
+plt.figure(figsize=(12, 5))
+plt.plot(stats_df["year"], stats_df["p10"], marker="o", label="p10 (bottom 10%)", color="red")
+plt.plot(stats_df["year"], stats_df["median"], marker="o", label="Median", color="steelblue")
+plt.plot(stats_df["year"], stats_df["p90"], marker="o", label="p90 (top 10%)", color="green")
+plt.fill_between(stats_df["year"], stats_df["p10"], stats_df["p90"], alpha=0.1, color="steelblue")
+plt.xlabel("Year")
+plt.ylabel("Alignment Score")
+plt.title("Alignment Score Trends: p10 / Median / p90 by Year")
+plt.xticks(stats_df["year"], rotation=35, ha="right")
+plt.legend()
+plt.tight_layout()
+plt.savefig("trend_p10_median_p90.png", dpi=200)
+plt.show()
+print("✅ trend_p10_median_p90.png saved")
