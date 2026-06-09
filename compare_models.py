@@ -5,9 +5,6 @@ import matplotlib.pyplot as plt
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# ============================================================
-# LOAD DATA
-# ============================================================
 with open("data.json", "r", encoding="utf-8") as f:
     data = json.load(f)
 
@@ -17,9 +14,6 @@ aims_and_scope = data["aims_and_scope"]
 
 print(f"Loaded {len(papers)} papers")
 
-# ============================================================
-# MODELS TO COMPARE
-# ============================================================
 models = {
     "MiniLM-L6"  : "all-MiniLM-L6-v2",
     "MPNet-Base" : "all-mpnet-base-v2",
@@ -43,16 +37,12 @@ for model_name, model_id in models.items():
     results[model_name] = scores
     print(f"  Done! Mean: {scores.mean():.4f}, Std: {scores.std():.4f}")
 
-# ============================================================
-# DATAFRAME
-# ============================================================
+
 df = pd.DataFrame(results)
 df["year"] = [p["year"] for p in papers]
 df["title"] = [p["title"] for p in papers]
 
-# ============================================================
-# VISUALIZATION 1 — Score Distribution per Model
-# ============================================================
+
 fig, axes = plt.subplots(1, 3, figsize=(15, 4), sharey=True)
 
 for i, model_name in enumerate(models.keys()):
@@ -65,11 +55,9 @@ plt.suptitle("Alignment Score Distribution by Model", fontsize=13)
 plt.tight_layout()
 plt.savefig("model_comparison_histograms.png", dpi=200)
 plt.show()
-print("✅ model_comparison_histograms.png saved")
+print(" model_comparison_histograms.png saved")
 
-# ============================================================
-# VISUALIZATION 2 — Thematic Drift per Model
-# ============================================================
+
 plt.figure(figsize=(12, 5))
 
 colors = ["steelblue", "darkorange", "green"]
@@ -87,11 +75,9 @@ plt.legend()
 plt.tight_layout()
 plt.savefig("model_comparison_drift.png", dpi=200)
 plt.show()
-print("✅ model_comparison_drift.png saved")
+print(" model_comparison_drift.png saved")
 
-# ============================================================
-# VISUALIZATION 3 — Correlation between models
-# ============================================================
+
 fig, axes = plt.subplots(1, 3, figsize=(15, 4))
 
 model_names = list(models.keys())
@@ -112,20 +98,15 @@ plt.suptitle("Model Score Correlations", fontsize=13)
 plt.tight_layout()
 plt.savefig("model_comparison_correlation.png", dpi=200)
 plt.show()
-print("✅ model_comparison_correlation.png saved")
+print(" model_comparison_correlation.png saved")
 
-# ============================================================
-# SUMMARY TABLE
-# ============================================================
-print("\n📊 MODEL COMPARISON SUMMARY:")
+print("\n MODEL COMPARISON SUMMARY:")
 print(f"{'Model':<15} {'Mean':>8} {'Std':>8} {'Min':>8} {'Max':>8}")
 print("-" * 50)
 for model_name in models.keys():
     scores = df[model_name]
     print(f"{model_name:<15} {scores.mean():>8.4f} {scores.std():>8.4f} {scores.min():>8.4f} {scores.max():>8.4f}")
 
-# ============================================================
-# SAVE
-# ============================================================
+
 df.to_csv("model_comparison_results.csv", index=False)
-print("\n✅ model_comparison_results.csv saved")
+print("\n model_comparison_results.csv saved")
