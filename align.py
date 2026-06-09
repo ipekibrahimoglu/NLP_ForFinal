@@ -26,11 +26,11 @@ for i, paper in enumerate(papers):
 
 papers_sorted = sorted(papers, key=lambda x: x["alignment_score"], reverse=True)
 
-print("\n🏆 En uyumlu 3 makale (Aims & Scope'a en yakın):")
+print("\n The top 3 articles most aligned with the Aims & Scope:")
 for p in papers_sorted[:3]:
     print(f"  [{p['alignment_score']:.3f}] {p['title']}")
 
-print("\n⚠️  En az uyumlu 3 makale (potansiyel outlier):")
+print("\n The 3 articles least aligned with the Aims & Scope (potential outliers):")
 for p in papers_sorted[-3:]:
     print(f"  [{p['alignment_score']:.3f}] {p['title']}")
 
@@ -38,4 +38,4 @@ data["papers"] = papers_sorted
 with open("results.json", "w", encoding="utf-8") as f:
     json.dump(data, f, ensure_ascii=False, indent=2)
 
-print(f"\n✅ Saved results to 'results.json'")
+print(f"\n Saved results to 'results.json'")
