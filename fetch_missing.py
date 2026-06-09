@@ -15,7 +15,7 @@ morphology, phonology, grammar induction, language modeling, information
 extraction, question answering, and related areas.
 """
 
-# Sadece eksik yılları çek
+
 START_YEAR = 2026
 END_YEAR = 2026
 MAX_PER_YEAR = 150
@@ -96,7 +96,7 @@ def fetch_papers():
     return papers
 
 def save(new_papers):
-    # Mevcut data.json'ı oku
+
     with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
         existing_data = json.load(f)
 
@@ -104,11 +104,11 @@ def save(new_papers):
     print(f"\nExisting papers: {len(existing_papers)}")
     print(f"New papers: {len(new_papers)}")
 
-    # Birleştir
+  
     all_papers = existing_papers + new_papers
     print(f"Total papers: {len(all_papers)}")
 
-    # Hepsini kaydet
+  
     output = {
         "journal": "Computational Linguistics (cs.CL on arXiv)",
         "year_range": "2015-2024",
@@ -120,7 +120,7 @@ def save(new_papers):
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"✅ Saved {len(all_papers)} papers to '{OUTPUT_FILE}'")
+    print(f" Saved {len(all_papers)} papers to '{OUTPUT_FILE}'")
 
 if __name__ == "__main__":
     new_papers = fetch_papers()
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
     if new_papers:
         sample = new_papers[0]
-        print(f"\n📄 Sample new paper:")
+        print(f"\n Sample new paper:")
         print(f"  Title: {sample['title']}")
         print(f"  Year:  {sample['year']}")
         print(f"  Abstract: {sample['abstract'][:150]}...")
